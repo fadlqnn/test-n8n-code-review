@@ -1,67 +1,74 @@
 <?php
 
-$products = [
-    [
-        "name" => "Mechanical Keyboard",
-        "price" => 850000,
-        "stock" => 10
-    ],
-    [
-        "name" => "Gaming Mouse",
-        "price" => 350000,
-        "stock" => 0
-    ],
-    [
-        "name" => "Monitor 24 Inch",
-        "price" => 2100000,
-        "stock" => 5
-    ]
+$users = [
+    "admin" => "123456",
+    "guest" => "guest123"
 ];
+
+$message = "";
+
+if(isset($_POST["login"])){
+
+    $username = trim($_POST["username"]);
+    $password = trim($_POST["password"]);
+
+    if(array_key_exists($username, $users)){
+
+        // BUG: Password dibandingkan dengan assignment
+        if($users[$username] = $password){
+            $message = "Login Success";
+        }else{
+            $message = "Wrong Password";
+        }
+
+    }else{
+        $message = "User Not Found";
+    }
+
+}
 
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Mini Store</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Simple Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<div class="login-box">
 
-<h1>Mini Store</h1>
+<h2>Login</h2>
 
-<?php foreach($product as $item): ?>
+<form method="POST">
 
-<div class="card">
+<input
+type="text"
+name="username"
+placeholder="Username"
+required>
 
-<h2><?= $item['name'] ?></h2>
+<input
+type="password"
+name="password"
+placeholder="Password"
+required>
 
-<p>
-Rp <?= number_format($item['price']) ?>
+<button type="submit">
+Login
+</button>
+
+</form>
+
+<p class="message">
+<?= $message ?>
 </p>
-
-<?php if($item['stock'] = 0): ?>
-
-<span class="sold-out">
-Out of Stock
-</span>
-
-<?php else: ?>
-
-<span class="available">
-Stock : <?= $item['stock'] ?>
-</span>
-
-<?php endif; ?>
-
-</div>
-
-<?php endforeach; ?>
 
 </div>
 
 </body>
+
 </html>
