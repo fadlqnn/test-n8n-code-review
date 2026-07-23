@@ -17,7 +17,7 @@ const products = [
 ];
 
 function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
+    return str.replace(/[&<>'"\/]/g, 
         tag => ({
             '&': '&amp;',
             '<': '&lt;',
@@ -32,14 +32,9 @@ function showProducts(){
 
     let html = "";
 
-<<<<<<< HEAD
-    // BUG: Menggunakan <= sehingga iterasi melebihi panjang array
-    for(let i = 0; i <= products.length; i++){
-=======
     for(let i = 0; i < products.length; i++){
         const safeName = escapeHTML(products[i].name);
         const formattedPrice = Number(products[i].price).toLocaleString('id-ID');
->>>>>>> a911849751912f4161f3f6591be54bb89d1d2506
 
         html += `
         <div class="card">
@@ -51,9 +46,5 @@ function showProducts(){
         `;
     }
 
-<<<<<<< HEAD
-    // BUG: ID tidak sesuai dengan HTML
-=======
->>>>>>> a911849751912f4161f3f6591be54bb89d1d2506
     document.getElementById("products").innerHTML = html;
 }
