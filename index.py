@@ -4,7 +4,7 @@ import sqlite3
 
 try:
     users = get_users()
-except (sqlite3.Error, Exception):
+except sqlite3.Error:
     users = []
 
 print("=== User List ===")
@@ -16,6 +16,7 @@ avg = calculate_average_age(users)
 
 print(f"\nAverage Age : {avg:.2f}")
 
+<<<<<<< HEAD
 # ===== BUG START =====
 
 # 1. IndexError (mengakses indeks yang belum tentu ada)
@@ -36,3 +37,7 @@ print(total_users)
 print(users.get("name"))
 
 # ===== BUG END =====
+=======
+if len(users) >= 6:
+    print(users[5]["name"])
+>>>>>>> a911849751912f4161f3f6591be54bb89d1d2506
