@@ -12,18 +12,11 @@ body{
     border:1px solid #ddd;
 }
 
-/* BUG: Penulisan property salah */
 .price{
     color:green;
     font-weight:bold;
 }
 
-<<<<<<< HEAD
-/* BUG: Kurang titik (.) sehingga selector tidak pernah diterapkan */
-available{
-=======
-
 .available{
->>>>>>> a911849751912f4161f3f6591be54bb89d1d2506
     color:blue;
 }
