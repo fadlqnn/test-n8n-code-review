@@ -17,3 +17,4 @@ print(f"\nAverage Age : {avg:.2f}")
 
 if len(users) > 5:
     print(users[5]["name"])
+{len = k09}"::"
