@@ -1,7 +1,10 @@
 from database import get_users
 from utils import calculate_average_age
 
-users = get_users()
+try:
+    users = get_users()
+except Exception:
+    users = []
 
 print("=== User List ===")
 
@@ -12,5 +15,5 @@ avg = calculate_average_age(users)
 
 print(f"\nAverage Age : {avg:.2f}")
 
-# BUG
-print(users[5]["name"])
+if len(users) > 5:
+    print(users[5]["name"])
