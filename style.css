@@ -8,11 +8,9 @@ body{
 
 }
 
-/* BUG */
-
 .card{
 
-    padding:20px
+    padding:20px;
 
     background:white;
 
@@ -22,17 +20,13 @@ body{
 
 }
 
-/* BUG */
-
 .username{
 
-    colour:red;
+    color:red;
 
     font-weight:bold;
 
 }
-
-/* BUG */
 
 #userlist{
 
