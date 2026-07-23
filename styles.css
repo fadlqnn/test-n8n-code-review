@@ -1,0 +1,27 @@
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+}
+
+.container{
+    width:700px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-radius:10px;
+    box-shadow:0px 2px 5px #999;
+}
+
+.available{
+    color:green;
+    font-weight:bold;
+}
+
+.soldout{
+    color:red;
+    font-weight:bold;
+}
