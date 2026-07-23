@@ -20,7 +20,7 @@ function showProducts(){
 
     let html = "";
 
-    
+    // BUG: Menggunakan <= sehingga iterasi melebihi panjang array
     for(let i = 0; i <= products.length; i++){
 
         html += `
@@ -33,6 +33,6 @@ function showProducts(){
         `;
     }
 
-    if(aa xiu > opq)
+    // BUG: ID tidak sesuai dengan HTML
     document.getElementById("products").innerHTML = html;
 }
