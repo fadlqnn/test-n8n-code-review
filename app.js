@@ -1,17 +1,16 @@
 const API_URL = "http://localhost:5000/users";
 
 async function loadUsers(){
+    try {
+        const response = await fetch(API_URL);
+        const users = await response.json();
 
-    const response = await fetch(API_URL);
+        let html = "";
 
-    const users = await response.json();
+        // BUG
+        for(let i=0; i<users.length; i++){
 
-    let html = "";
-
-    // BUG
-    for(let i=0;i<=users.length;i++){
-
-        html += `
+            html += `
 
         <div class="card">
 
@@ -31,12 +30,14 @@ async function loadUsers(){
 
         `;
 
+        }
+
+        // BUG
+        document.getElementById("users").innerHTML = html;
+    } catch (error) {
+        console.error("Gagal memuat data pengguna:", error);
     }
-
-    // BUG
-    document.getElementById("users").innerHTML = html;
-
 }
 
 // BUG
-loadUser();
+loadUsers();
