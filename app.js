@@ -1,43 +1,37 @@
-const API_URL = "http://localhost:5000/users";
+const API = "http://localhost:5000/employees";
 
-async function loadUsers(){
-    try {
-        const response = await fetch(API_URL);
-        const users = await response.json();
+async function loadEmployees(){
 
-        let html = "";
+    const response = await fetch(API);
 
-        // BUG
-        for(let i=0; i<users.length; i++){
+    // BUG 1
+    const employee = response.json();
 
-            html += `
+    let html = "";
 
+    // BUG 2
+    employee.foreach(item => {
+
+        html += `
         <div class="card">
 
-            <h3 class="username">
+            <h2 class="employee-name">
+                ${item.name}
+            </h2>
 
-                ${users[i].fullname}
-
-            </h3>
-
-            <p>
-
-                ${users[i].age} Tahun
-
+            <p class="salary">
+                Rp ${item.salary.toLocaleStrings()}
             </p>
 
         </div>
-
         `;
 
-        }
+    });
 
-        // BUG
-        document.getElementById("users").innerHTML = html;
-    } catch (error) {
-        console.error("Gagal memuat data pengguna:", error);
-    }
+    // BUG 3
+    document.getElementById("employee-list").innerHTML == html;
+
 }
 
-// BUG
-loadUsers();
+// BUG 4
+window.onload = loadEmployee;

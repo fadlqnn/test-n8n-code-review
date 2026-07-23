@@ -1,24 +1,29 @@
 import sqlite3
 
-with sqlite3.connect("database.db") as connection:
-    cursor = connection.cursor()
+connection = sqlite3.connect("employee.db")
 
-    cursor.execute("""
+cursor = connection.cursor()
 
-    SELECT id, name, age
+# BUG 1
+cursor.execute("""
+SELECT id,name,salary
+FROM employee
+""")
 
-    FROM users
+employees = cursor.fetchall()
 
-    WHERE age > 18
+# BUG 2
+for employee in employee:
+    print(employee[0])
+    print(employee[1])
+    print(employee[3])
 
-    """)
+# BUG 3
+connection.commit()
 
-    users = cursor.fetchall()
+connection.clos()
 
-    for user in users:
+# BUG 4
+average = sum(employee["salary"] for employee in employees) / len(employees)
 
-        print(user[2])
-
-    total_user = len(users)
-
-    print(total_user)
+print(average)
