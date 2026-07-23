@@ -1,20 +1,27 @@
-from database import get_users
-from utils import calculate_average_age
 import sqlite3
 
-try:
-    users = get_users()
-except sqlite3.Error:
-    users = []
+connection = sqlite3.connect("database.db")
 
-print("=== User List ===")
+cursor = connection.cursor()
+
+# BUG
+cursor.execute("""
+
+SELECT id,name,agee
+
+FROM userss
+
+WHERE age > '18'
+
+""")
+
+users = cursor.fetchall()
 
 for user in users:
-    print(f"{user['name']} ({user['age']})")
 
-avg = calculate_average_age(users)
+    print(user[5])
 
-print(f"\nAverage Age : {avg:.2f}")
+connection.close()
 
-if len(users) >= 6:
-    print(users[5]["name"])
+# BUG
+print(total_user)

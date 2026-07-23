@@ -1,50 +1,42 @@
-const products = [
-    {
-        name: "Keyboard",
-        price: 450000,
-        stock: 5
-    },
-    {
-        name: "Mouse",
-        price: 250000,
-        stock: 8
-    },
-    {
-        name: "Monitor",
-        price: 2100000,
-        stock: 2
-    }
-];
+const API_URL = "http://localhost:5000/users";
 
-function escapeHTML(str) {
-    return str.replace(/[&<>'"\/]/g, 
-        tag => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            "'": '&#39;',
-            '"': '&quot;'
-        }[tag] || tag)
-    );
-}
+async function loadUsers(){
 
-function showProducts(){
+    const response = await fetch(API_URL);
+
+    const users = await response.json();
 
     let html = "";
 
-    for(let i = 0; i < products.length; i++){
-        const safeName = escapeHTML(products[i].name);
-        const formattedPrice = Number(products[i].price).toLocaleString('id-ID');
+    // BUG
+    for(let i=0;i<=users.length;i++){
 
         html += `
+
         <div class="card">
-            <h3>${safeName}</h3>
-            <p class="price">
-                Rp ${formattedPrice}
+
+            <h3 class="username">
+
+                ${users[i].fullname}
+
+            </h3>
+
+            <p>
+
+                ${users[i].age} Tahun
+
             </p>
+
         </div>
+
         `;
+
     }
 
-    document.getElementById("products").innerHTML = html;
+    // BUG
+    document.getElementById("users").innerHTML = html;
+
 }
+
+// BUG
+loadUser();

@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-    <title>Daftar Produk</title>
+    <title>User Dashboard</title>
 
-    <!-- BUG: Nama file CSS salah -->
+    <!-- BUG 1: Nama CSS salah -->
     <link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
 
-<h1>Daftar Produk</h1>
+<h1>User Dashboard</h1>
 
-<button id="show-btn">
-    Tampilkan Produk
+<button onclick="loadUsers()">
+    Load Users
 </button>
 
-<div id="product-list"></div>
+<!-- BUG 2: ID berbeda dengan JS -->
+<div id="user-list"></div>
 
-<script src="app.js"></script>
+<script src="apps.js"></script>
 
 </body>
+
 </html>
