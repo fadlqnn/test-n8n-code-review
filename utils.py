@@ -5,4 +5,4 @@ def calculate_average_age(users):
     for user in users:
         total += user["age"]
 
-    return total / len(users)ahjgsugfvyghjtudeswgvfuydeswafg7eiwaqgrqwaeheew8oirujew348io9frg7eiuwy38afguyaeswgd
+    return total / len(users)ahjgsugfvyghjtudeswgvfuydeswafg7eiwaqgrqwaeheew8oirujew348io9frg7eiuwy38afguyaeswgd awukdguaqwugigouqwdgoudwguaswdgasiodfhasdhasgujaesdgkgju
