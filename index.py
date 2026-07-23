@@ -1,27 +1,24 @@
 import sqlite3
 
-connection = sqlite3.connect("database.db")
+with sqlite3.connect("database.db") as connection:
+    cursor = connection.cursor()
 
-cursor = connection.cursor()
+    cursor.execute("""
 
-# BUG
-cursor.execute("""
+    SELECT id, name, age
 
-SELECT id,name,agee
+    FROM users
 
-FROM userss
+    WHERE age > 18
 
-WHERE age > '18'
+    """)
 
-""")
+    users = cursor.fetchall()
 
-users = cursor.fetchall()
+    for user in users:
 
-for user in users:
+        print(user[2])
 
-    print(user[5])
+    total_user = len(users)
 
-connection.close()
-
-# BUG
-print(total_user)
+    print(total_user)
