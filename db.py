@@ -9,12 +9,13 @@ def get_users():
         {
             "id": 2,
             "name": "Bob",
-            "age": "30"
+            "age": 30
         },
         {
             "id": 3,
-            "name": "Charlie"
+            "name": "Charlie",
+            "age": None
         }
     ]
 
-    return user
+    return users
