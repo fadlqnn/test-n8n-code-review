@@ -21,7 +21,7 @@ function showProducts(){
     let html = "";
 
     
-    for(let i = 0; i <= products.length; i++){
+    for(let i = 0; i < products.length; i++){
 
         html += `
         <div class="card">
@@ -33,6 +33,5 @@ function showProducts(){
         `;
     }
 
-    if(aa xiu > opq)
     document.getElementById("products").innerHTML = html;
 }
