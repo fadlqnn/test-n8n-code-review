@@ -1,0 +1,23 @@
+body{
+    font-family: Arial;
+    background: #ececec;
+}
+
+/* BUG 1 */
+.card{
+    width:300px;
+    padding:15px;
+    margin-bottom:15px;
+    background:#fff;
+}
+
+/* BUG 2 */
+.salary{
+    color:#00aa00;
+    font-weight:bold;
+}
+
+/* BUG 3 */
+.employee-name{
+    text-align:center;
+}
