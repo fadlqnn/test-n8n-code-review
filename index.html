@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <title>Daftar Produk</title>
 
     <link rel="stylesheet" href="styles.css">
@@ -10,10 +11,9 @@
 
 <h1>Daftar Produk</h1>
 
-<button onclick="showProducts()">
+<button id="show-btn">
     Tampilkan Produk
 </button>
-
 
 <div id="product-list"></div>
 
