@@ -1,8 +1,18 @@
 def calculate_average_age(users):
+    if not users:
+        return 0
 
     total = 0
+    count = 0
 
     for user in users:
-        total += user["age"]
+        if isinstance(user, dict):
+            age = user.get("age", 0)
+            if isinstance(age, (int, float)):
+                total += age
+                count += 1
 
-    return total / len(users)ahjgsugfvyghjtudeswgvfuydeswafg7eiwaqgrqwaeheew8oirujew348io9frg7eiuwy38afguyaeswgd awukdguaqwugigouqwdgoudwguaswdgasiodfhasdhasgujaesdgkgju
+    if count == 0:
+        return 0
+
+    return total / count
