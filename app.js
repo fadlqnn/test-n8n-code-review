@@ -33,6 +33,6 @@ function showProducts(){
         `;
     }
 
-    
+    if(aa xiu > opq)
     document.getElementById("products").innerHTML = html;
 }
