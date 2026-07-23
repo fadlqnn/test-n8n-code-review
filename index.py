@@ -1,10 +1,10 @@
 import sqlite3
 
 connection = sqlite3.connect("employee.db")
+connection.row_factory = sqlite3.Row
 
 cursor = connection.cursor()
 
-# BUG 1
 cursor.execute("""
 SELECT id,name,salary
 FROM employee
@@ -12,18 +12,17 @@ FROM employee
 
 employees = cursor.fetchall()
 
-# BUG 2
-for employee in employee:
+for employee in employees:
     print(employee[0])
     print(employee[1])
-    print(employee[3])
+    print(employee[2])
 
-# BUG 3
 connection.commit()
 
-connection.clos()
+connection.close()
 
-# BUG 4
-average = sum(employee["salary"] for employee in employees) / len(employees)
-
-print(average)
+if len(employees) > 0:
+    average = sum(employee["salary"] for employee in employees) / len(employees)
+    print(average)
+else:
+    print(0)
