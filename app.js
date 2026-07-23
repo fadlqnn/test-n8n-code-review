@@ -4,13 +4,11 @@ async function loadEmployees(){
 
     const response = await fetch(API);
 
-    // BUG 1
-    const employee = response.json();
+    const employee = await response.json();
 
     let html = "";
 
-    // BUG 2
-    employee.foreach(item => {
+    employee.forEach(item => {
 
         html += `
         <div class="card">
@@ -20,7 +18,7 @@ async function loadEmployees(){
             </h2>
 
             <p class="salary">
-                Rp ${item.salary.toLocaleStrings()}
+                Rp ${item.salary.toLocaleString()}
             </p>
 
         </div>
@@ -28,10 +26,8 @@ async function loadEmployees(){
 
     });
 
-    // BUG 3
-    document.getElementById("employee-list").innerHTML == html;
+    document.getElementById("employee-list").innerHTML = html;
 
 }
 
-// BUG 4
-window.onload = loadEmployee;
+window.onload = loadEmployees;
